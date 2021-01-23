@@ -23,6 +23,7 @@
         </div>
         @endforeach
     </div>
+    {{$products->links()}}
 @endsection
 
 @section('title', $title)
