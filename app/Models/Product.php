@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    public function getImgAttribute($value)
+    {
+       return $value ? $value : '/images/no_image.jpg';
+    }
 }

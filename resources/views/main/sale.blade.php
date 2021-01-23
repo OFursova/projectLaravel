@@ -13,6 +13,7 @@
         @foreach ($products as $product)
         <div class="product-tile m-2 p-2 w-25 min-vh-30 max-vh-50 border border-secondary rounded d-flex flex-column justify-content-around">
             <h3>{{$product->name}}</h3>
+            <img src="{{$product->img}}" alt="{{$product->name}}" class="w-75 align-self-center">
             <p class="text-dark text-justify">{{$product->description}}</p>
             <p class="text-center text-danger"><del>{{$product->price}}</del></p>
             <p class="text-center text-success">{{$product->action_price}}</p>
