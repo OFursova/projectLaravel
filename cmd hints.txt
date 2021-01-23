@@ -1,3 +1,11 @@
 php artisan vendor:publish --tag=laravel-pagination
 
 // copy files from vendoe directory to working directory in order to customize it
+
+composer require laravel/ui 
+
+// installing laravel packages
+
+php artisan ui bootstrap
+
+// installing bootstrap
