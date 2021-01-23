@@ -9,9 +9,9 @@
     <div class="alert alert-success">{{session('success')}}</div>
     @endif
     
-    <div class="thumbs d-flex">
+    <div class="thumbs d-flex flex-wrap justify-content-between">
         @foreach ($products as $product)
-        <div class="product-tile m-2 p-2 w-25 min-vh-30 border border-secondary rounded d-flex flex-column justify-content-around">
+        <div class="product-tile m-2 p-2 w-25 min-vh-30 max-vh-50 border border-secondary rounded d-flex flex-column justify-content-around">
             <h3>{{$product->name}}</h3>
             <p class="text-dark text-justify">{{$product->description}}</p>
             <p class="text-center text-danger"><del>{{$product->price}}</del></p>
