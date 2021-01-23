@@ -20,14 +20,14 @@
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{old('name')}}">
+            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{old('email')}}">
             @error('email')
             <div class="invalid-feedback">{{$message}}</div>
             @enderror
         </div>
         <div class="form-group">
             <label for="message">Message:</label>
-            <textarea class="form-control @error('message') is-invalid @enderror" name="message" id="message">{{old('name')}}</textarea>
+            <textarea class="form-control @error('message') is-invalid @enderror" name="message" id="message">{{old('message')}}</textarea>
             @error('message')
             <div class="invalid-feedback">{{$message}}</div>
             @enderror

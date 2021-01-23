@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,7 @@ use App\Http\Controllers\MainController;
 Route::get('/', [MainController::class, 'index']);
 Route::get('/contacts', [MainController::class, 'contacts']);
 Route::post('/contacts', [MainController::class, 'getContacts']);
+Route::get('/sale', [StoreController::class, 'sale']);
+Route::post('/sale', [StoreController::class, 'buyProduct']);
+Route::get('/review', [ReviewController::class, 'review']);
+Route::post('/review', [ReviewController::class, 'sendReview']);
