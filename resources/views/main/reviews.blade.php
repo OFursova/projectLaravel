@@ -27,6 +27,16 @@
         </div>
         <button class="btn btn-primary my-2">Send</button>
     </form>
+
+    @forelse ($reviews as $review)
+        <div class="alert border">
+            <h3>{{$review->name}}</h3>
+            <h4 class="text-secondary">{{$review->created_at->format('d.m.Y')}}</h4>
+            <p>{{$review->review}}</p>
+        </div>
+        @empty <p class="text-center">No reviews</p>
+    @endforelse
+    {{$reviews->links()}}
 @endsection
 
 @section('title', $title)

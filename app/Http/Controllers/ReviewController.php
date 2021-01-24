@@ -12,9 +12,10 @@ class ReviewController extends Controller
     {
         $title = 'Reviews';
         $products = Product::all();
-        $reviews = Review::all();
+        $reviews = Review::paginate(5);
+        // вывести дату отзыва в фомате дд.мм.гггг
         //dump($products);
-        //dd($categories);
+        //dd($reviews);
         return view('main.reviews', compact('title', 'products', 'reviews'));
     }
 
@@ -24,6 +25,11 @@ class ReviewController extends Controller
             'name' => 'required|min:3|max:255',
             'review' => 'required|min:3',
         ]);
+    
+        $review = new Review();
+        $review->name = $request->name;
+        $review->review = $request->review;
+        $review->save();
 
         return back()->with('success', 'Thank you for your review!');
     }
