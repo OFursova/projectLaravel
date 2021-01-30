@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\StoreController;
@@ -32,3 +34,8 @@ Route::post('/review', [ReviewController::class, 'sendReview']);
 
 Route::get('/category/{slug}', [StoreController::class, 'category']);
 Auth::routes();
+
+Route::middleware(['auth'])->prefix('admin')->group(function(){
+    Route::get('/', [AdminController::class, 'index']);
+    Route::resource('/category', CategoryController::class);
+});

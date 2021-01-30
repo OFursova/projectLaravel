@@ -9,6 +9,6 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return 'Welcome to Admin Panel';
+        return view('admin.index');
     }
 }
