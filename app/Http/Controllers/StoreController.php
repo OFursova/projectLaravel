@@ -21,12 +21,20 @@ class StoreController extends Controller
         $categories = Category::all();
         //dump($products);
         //dd($categories);
-        return view('main.sale', compact('title', 'products', 'categories'));
+        return view('store.sale', compact('title', 'products', 'categories'));
     }
 
     public function buyProduct(Request $request)
     {
         //Feature in development
         return back()->with('success', 'The item is in cart! Thanks!');
+    }
+
+    public function category($slug)
+    {
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $products = Product::where('category_id', $category->id)->paginate(12);
+
+        return view('store.category', compact('category', 'products'));
     }
 }

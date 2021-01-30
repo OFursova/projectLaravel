@@ -8,7 +8,9 @@
     @if (session('success'))
     <div class="alert alert-success">{{session('success')}}</div>
     @endif
-
+    @section('sidebar')
+        @parent
+    @endsection
     <form action="/contacts" method="post">
         @csrf
         <div class="form-group">

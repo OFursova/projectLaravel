@@ -28,3 +28,5 @@ Route::get('/sale', [StoreController::class, 'sale']);
 Route::post('/sale', [StoreController::class, 'buyProduct']);
 Route::get('/review', [ReviewController::class, 'review']);
 Route::post('/review', [ReviewController::class, 'sendReview']);
+
+Route::get('/category/{slug}', [StoreController::class, 'category']);

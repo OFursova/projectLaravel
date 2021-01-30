@@ -13,4 +13,10 @@ class Product extends Model
     {
        return $value ? $value : '/images/no_image.jpg';
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id', 'id');
+        // модель, название столбца с внешним ключом, название столба текущей модели, название столбца связанной модели
+    }
 }

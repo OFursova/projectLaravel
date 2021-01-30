@@ -14,7 +14,14 @@
     <header>Header</header>
 
     <section class="container">
-        @yield('content')
+        <div class="row">
+            <div class="col-md-3 w-100">
+                @section('sidebar')
+                @include('store.parts._list-categories')
+                @show
+            </div>
+            <div class="col-md-9">@yield('content')</div>
+        </div>
     </section>
 
     <footer>Footer</footer>
