@@ -9,6 +9,7 @@
     <div class="alert alert-success">{{session('success')}}</div>
     @endif
     
+    @auth
     <form action="/review" method="post">
         @csrf
         <div class="form-group">
@@ -27,6 +28,9 @@
         </div>
         <button class="btn btn-primary my-2">Send</button>
     </form>
+    @else
+    <p><a href="/login">Login</a> or <a href="/register">register</a></p>
+    @endauth
 
     @forelse ($reviews as $review)
         <div class="alert border">

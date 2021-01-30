@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-/* @charset "UTF-8"; */
+@charset "UTF-8";
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10423,12 +10423,7 @@ a.text-dark:focus {
         border-color: #dee2e6;
     }
 }
+
 .w-30 {
     width: 31%;
-}
-
-footer {
-    background-color: hsl(0, 0%, 20%)0, 0%, 20%);
-    border-top: #aaa;
-    padding: 20px;
 }

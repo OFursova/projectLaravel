@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ReviewController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\ReviewController;
 
 //Route::get('/', 'MainController@index'); - laravel older than version 8
 Route::get('/', [MainController::class, 'index']);
-Route::get('/contacts', [MainController::class, 'contacts']);
+Route::get('/contacts', [MainController::class, 'contacts'])->middleware('auth');
 Route::post('/contacts', [MainController::class, 'getContacts']);
 Route::get('/sale', [StoreController::class, 'sale']);
 Route::post('/sale', [StoreController::class, 'buyProduct']);
@@ -30,3 +31,4 @@ Route::get('/review', [ReviewController::class, 'review']);
 Route::post('/review', [ReviewController::class, 'sendReview']);
 
 Route::get('/category/{slug}', [StoreController::class, 'category']);
+Auth::routes();
