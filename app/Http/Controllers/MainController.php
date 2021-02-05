@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Review;
 
 class MainController extends Controller
 {
@@ -13,11 +14,12 @@ class MainController extends Controller
         $title = 'Welcome';
         $subtitle = '<em>to store</em>';
         $products = Product::with('category')->get();
+        $reviews = Review::with('product')->get();
         //dd($products[0]);
         //$categories = Category::all();
         //dump($products);
         //dd($categories);
-        return view('main.index', compact('title', 'products', 'subtitle'));
+        return view('main.index', compact('title', 'products', 'reviews', 'subtitle'));
     }
 
     public function contacts()

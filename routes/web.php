@@ -33,6 +33,7 @@ Route::get('/review', [ReviewController::class, 'review']);
 Route::post('/review', [ReviewController::class, 'sendReview']);
 
 Route::get('/category/{slug}', [StoreController::class, 'category']);
+Route::get('/product/{slug}', [StoreController::class, 'product']);
 Auth::routes();
 
 Route::middleware(['auth'])->prefix('admin')->group(function(){

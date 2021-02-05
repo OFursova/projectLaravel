@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Review;
 
 class StoreController extends Controller
 {
@@ -36,5 +37,14 @@ class StoreController extends Controller
         $products = Product::where('category_id', $category->id)->paginate(12);
 
         return view('store.category', compact('category', 'products'));
+    }
+
+    public function product($slug)
+    {
+        $product = Product::where('slug', $slug)->firstOrFail();
+        $reviews = Review::where('product_id', $product->id)->paginate(5);
+        $title = $product->name;
+
+        return view('store.product', compact('product', 'reviews', 'title'));
     }
 }
