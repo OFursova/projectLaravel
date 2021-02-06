@@ -10,14 +10,6 @@
             <button class="btn btn-success m-1 w-100">BUY</button>
             </form>
             @if (!\Request::is('product/*'))
-            <p>Reviews:
-            <?php $q = 0; ?>
-            @foreach ($reviews as $review)
-            @if ($product->id == $review->product_id)
-            {{-- <p>{{$review->review}}</p> --}}
-            <?php $q++; ?>
-            @endif
-            @endforeach
-            <a href="/product/{{$product->slug}}">{{$q}}</a></p>
+            <p>Reviews: <a href="/product/{{$product->slug}}">{{$product->reviews_count}}</a></p>
         @endif
 </div>
