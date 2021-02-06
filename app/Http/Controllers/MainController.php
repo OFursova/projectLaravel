@@ -16,7 +16,7 @@ class MainController extends Controller
         //$categories = Category::all();
         //$products = Product::with('category')->withCount('reviews')->get();
         $products = Product::with('category')->get();
-        //$products = Product::with('category')->recommended()->get();
+        //$products = Product::with('category')->recommended()->latest()->get();
         // local scope usage ^
 
         //dd($products[0]);

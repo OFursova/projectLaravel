@@ -40,3 +40,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
     Route::get('/', [AdminController::class, 'index']);
     Route::resource('/category', CategoryController::class);
 });
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
