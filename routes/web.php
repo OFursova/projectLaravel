@@ -39,6 +39,7 @@ Auth::routes();
 Route::middleware(['auth'])->prefix('admin')->group(function(){
     Route::get('/', [AdminController::class, 'index']);
     Route::resource('/category', CategoryController::class);
+    Route::resource('/product', ProductController::class);
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
