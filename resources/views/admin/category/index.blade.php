@@ -19,7 +19,11 @@
                 <td>{{$loop->iteration}}</td>
                 <td><img src="{{asset($item->img)}}" style="width: 70px;" alt="{{$item->name}}"></td>
                 <td>{{$item->name}}</td>
-                <td></td>
+                <td><a href="/admin/category/{{$item->id}}/edit" class="btn btn-warning">Edit</a>
+                {!! Form::open(['url' => '/admin/category/'.$item->id, 'method' => 'delete']) !!}
+                    <button class="btn btn-danger">Delete</button>
+                {!! Form::close() !!}
+            </td>
             </tr>
             @endforeach
         </tbody>
