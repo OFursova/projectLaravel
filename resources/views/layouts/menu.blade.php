@@ -40,6 +40,14 @@
 
         <ul class="navbar-nav ml-auto">
           <!-- Authentication Links -->
+          @role('administrator')
+              <li class="nav-item">
+                <a class="nav-link" href="/admin">Admin Panel</a>
+            </li>
+          @endrole
+
+            {{-- {{ dump(Gate::allows('manage_categories')) }} --}}
+
           @guest
               @if (Route::has('login'))
                   <li class="nav-item">
