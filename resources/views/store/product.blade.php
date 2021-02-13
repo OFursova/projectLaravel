@@ -8,8 +8,12 @@
     <p class="text-dark text-justify">{{$product->description}}</p>
     <p class="text-center text-danger"><del>{{$product->price}}</del></p>
     <p class="text-center text-success">{{$product->action_price}}</p>
-    <form action="/sale" method="post" class="align-self-center w-75">
-    @csrf
+    <form action="/cart/add" method="post" class="align-self-center w-75 form-add-to-cart">
+    {{-- @csrf --}}
+    <div class="form-group">
+        <input type="number" name="qty" id="" class="form-control" value="1">
+    </div>
+    <input type="hidden" name="product_id" value="{{$product->id}}">
     <button class="btn btn-success m-1 w-100">BUY</button>
     </form>
 </div>

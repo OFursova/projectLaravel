@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\StoreController;
@@ -34,7 +35,10 @@ Route::get('/review', [ReviewController::class, 'review']);
 Route::post('/review', [ReviewController::class, 'sendReview']);
 
 Route::get('/category/{slug}', [StoreController::class, 'category']);
-Route::get('/product/{slug}', [StoreController::class, 'product']);
+Route::get('/product/{product:slug}', [StoreController::class, 'product']);
+
+Route::post('/cart/add', [CartController::class, 'add']);
+
 Auth::routes();
 
 Route::middleware(['auth', 'role:administrator'])->prefix('admin')->group(function(){
