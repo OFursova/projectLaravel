@@ -39,10 +39,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="/contacts" class="nav-link">Contact</a>
       </li>
     </ul>
 
@@ -168,7 +168,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/dist/img/user3-128x128.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{Auth::user()->name}}</a>
@@ -180,8 +180,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                   <li class="list-item"><a href="/admin/category"><span>Categories</span></a></li>
-                   <li class="list-item"><a href="/admin/product"><span>Products</span></a></li> 
+                   <li class="list-item my-1 py-2 border-bottom"><a href="/admin/category"><span>Categories</span></a></li>
+                   <li class="list-item my-1 py-2 border-bottom"><a href="/admin/product"><span>Products</span></a></li> 
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

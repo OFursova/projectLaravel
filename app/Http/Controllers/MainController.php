@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 //use App\Models\Review;
 //use App\Models\Category;
+//use App\Models\User;
+//use App\Models\Permission;
 
 class MainController extends Controller
 {
     public function index()
     {
+        //dd(User::find(121)->hasRole('administrator')); // checking user role
+        //dd(Permission::find(1)->roles);
+
         $title = 'Welcome';
         $subtitle = '<em>to store</em>';
         //$categories = Category::all();

@@ -37,7 +37,7 @@ Route::get('/category/{slug}', [StoreController::class, 'category']);
 Route::get('/product/{slug}', [StoreController::class, 'product']);
 Auth::routes();
 
-Route::middleware(['auth'])->prefix('admin')->group(function(){
+Route::middleware(['auth', 'role:administrator'])->prefix('admin')->group(function(){
     Route::get('/', [AdminController::class, 'index']);
     Route::resource('/category', CategoryController::class);
     Route::resource('/product', ProductController::class);

@@ -9,3 +9,26 @@ composer require laravel/ui
 php artisan ui bootstrap
 
 // installing bootstrap
+
+
+
+php artisan make:model User -m
+
+// creating model with migration files
+
+php artisan make:migration create_users_table
+
+// creating migration file for creating table in DB
+
+php artisan make:controller Admin\AdminController --resource
+
+// creating resourse controller with rounting in particular folder (here: Admin)
+
+php artisan make:middleware RoleMiddleware
+
+// making own middleware (like in-build authentification)
+
+$ php artisan make:provider BladeServiceProvider
+
+// creating provider in order to make custom blade directive + after making changes run $ php artisan view:clear
+

@@ -18,7 +18,7 @@
 </div>
 <div class="form-group">
   {!! Form::label('price', 'Product Price: ') !!}
-  {!! Form::text('price', null, ['class'=>'form-control'. ($errors->has('price') ? ' is-invalid' : '')]) !!}
+  {!! Form::number('price', null, ['step'->'0.01', 'min'->'0', 'class'=>'form-control'. ($errors->has('price') ? ' is-invalid' : '')]) !!}
   @error('price')
       <div class="invalid-feedback">{{$message}}</div>
   @enderror
@@ -43,6 +43,7 @@
     {!! Form::label('uploadImg', 'Product Image: ') !!}
     {!! Form::file('uploadImg', ['class'=>'form-control']) !!}
 </div> --}}
+  {!! Form::label('img', 'Product Image: ') !!}
 <div class="input-group">
     <span class="input-group-btn">
       <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
