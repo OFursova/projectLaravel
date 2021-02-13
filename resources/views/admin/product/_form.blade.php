@@ -31,9 +31,12 @@
   @enderror
 </div>
 <div class="form-group">
-  {!! Form::checkbox('recommended', 'recommended') !!}
+  {!! Form::label('recommended', 'Product recommended: ') !!}
+  {!! Form::hidden('recommended', 0) !!}
+  {!! Form::checkbox('recommended', 1) !!}
 </div>
 <div class="form-group">
+  {!! Form::label('category_id', 'Category: ') !!}
   {!! Form::select('category_id', $categories) !!}
 </div>
 {{-- <div class="form-group">
@@ -46,11 +49,11 @@
         <i class="fa fa-picture-o"></i> Choose
       </a>
     </span>
-    <input id="thumbnail" class="form-control" type="text" name="img" value="@isset($product) {{$product->img}} @endisset">
+    <input id="thumbnail" class="form-control" type="text" name="img" value="@isset($products) {{$products->img}} @endisset">
   </div>
   <div id="holder" style="margin-top:15px;max-height:100px;">
-    @isset($product)
-    <img src="{{$category->img}}" alt="{{$product->name}}" style="max-height:100px">
+    @isset($products)
+    <img src="{{$products->img}}" alt="{{$products->name}}" style="max-height:100px">
     @endisset
   </div>
 

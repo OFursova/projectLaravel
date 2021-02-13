@@ -28,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $categories = Category::all()->pluck('name', 'id');
+        return view('admin.product.create', compact('categories'));
     }
 
     /**
@@ -58,8 +59,8 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'slug' => 'required|unique:categories|max:255',
-            'price' => 'requred',
-            'action_price' => 'requred',
+            'price' => 'required',
+            'action_price' => 'required',
         ]);
         Product::create($request->all());
         return redirect('/admin/product');
@@ -85,7 +86,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::findOrFail($id);
-        return view('admin.products.edit', compact('products'));
+        $categories = Category::all()->pluck('name', 'id');
+        return view('admin.product.edit', compact('products', 'categories'));
     }
 
     /**
