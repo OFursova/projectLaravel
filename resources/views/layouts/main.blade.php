@@ -36,8 +36,31 @@
 
     <footer></footer>
 
+    <!-- Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            @include('store.parts._cart')
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary clear-cart">Clear Cart</button>
+            <a href="/checkout" class="btn btn-success">Checkout</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
     {{-- <script src="../../../node_modules/@splidejs/splide/dist/js/splide.min.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    @if (url()->current() == 'http://lara')
     <script>
         document.addEventListener( 'DOMContentLoaded', function () {
             // new Splide( '.splide' ).mount();
@@ -53,6 +76,8 @@
         } );
         
     </script>
+    @endif
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="{{asset('js/app.js')}}"></script>
     @yield('js')
 </body>

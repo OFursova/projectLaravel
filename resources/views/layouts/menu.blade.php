@@ -47,6 +47,11 @@
           @endrole
 
             {{-- {{ dump(Gate::allows('manage_categories')) }} --}}
+            <li class="nav-item">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
+              Cart
+            </button>
+            </li>
 
           @guest
               @if (Route::has('login'))

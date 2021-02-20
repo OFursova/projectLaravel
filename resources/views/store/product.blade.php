@@ -17,6 +17,10 @@
     <button class="btn btn-success m-1 w-100">BUY</button>
     </form>
 </div>
+<h2>With this product often buy:</h2>
+@foreach ($recommendations as $item)
+    <p>{{$item}}</p>
+@endforeach
 <h2>Leave your review:</h2>
 @include('store.parts._reviews')
 @endsection

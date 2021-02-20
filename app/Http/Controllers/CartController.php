@@ -11,6 +11,30 @@ class CartController extends Controller
     public function add(Request $request)
     {
         Cart::add(Product::findOrFail($request->product_id), $request->qty);
-        return $request->product_id;
+        return view('store.parts._cart');
+    }
+
+    public function clear()
+    {
+        Cart::clear();
+        return view('store.parts._cart');
+    }
+
+    public function remove($id)
+    {
+        Cart::remove($id);
+        return view('store.parts._cart');
+    }
+
+    
+    public function changeItem(Request $request)
+    {
+        if ($request->qty <=0) {
+            Cart::remove($request->id);
+        } else {
+            Cart::changeQuantity($request->id, $request->qty);
+        }
+        
+        return view('store.parts._cart');
     }
 }
