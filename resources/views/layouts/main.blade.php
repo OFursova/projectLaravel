@@ -15,12 +15,14 @@
 </head>
 <body>
     @include('layouts.menu')
-    <header></header>
-
+    <header>    
+    @if (url()->current() == 'http://lara')
     @include('layouts.slider')
+    @endif
+    </header>
     
     <section class="container">
-        <div class="row">
+        <div class="row my-2">
             <div class="col-md-3 w-100">
                 @section('sidebar')
                 @include('store.parts._list-categories')
