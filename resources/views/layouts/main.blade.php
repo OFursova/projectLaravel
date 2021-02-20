@@ -17,12 +17,8 @@
     @include('layouts.menu')
     <header></header>
 
-<div class="container">
-    <div class="row">
-        @include('layouts.slider')
-    </div>
-</div>
-
+    @include('layouts.slider')
+    
     <section class="container">
         <div class="row">
             <div class="col-md-3 w-100">
@@ -42,13 +38,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script>
         document.addEventListener( 'DOMContentLoaded', function () {
-            new Splide( '.splide' ).mount();
+            // new Splide( '.splide' ).mount();
+
+            var splide = new Splide( '#image-slider', {
+                'cover'      : true,
+                'heightRatio': 0.5,
+            } );
+            splide.on( 'autoplay:playing', function ( rate ) {
+            console.log( rate ); // 0-1
+            } );
+            splide.mount();
         } );
-        var splide = new Splide( '.splide' );
-        splide.on( 'autoplay:playing', function ( rate ) {
-	    console.log( rate ); // 0-1
-        } );
-        splide.mount();
+        
     </script>
     <script src="{{asset('js/app.js')}}"></script>
     @yield('js')

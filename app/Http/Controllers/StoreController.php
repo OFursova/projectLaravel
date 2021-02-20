@@ -42,9 +42,10 @@ class StoreController extends Controller
     public function product(Product $product)
     {
         // $product = Product::where('slug', $slug)->firstOrFail();
+        $recommendations = $product->recommendations();
         $reviews = Review::where('product_id', $product->id)->paginate(5);
         $title = $product->name;
 
-        return view('store.product', compact('product', 'reviews', 'title'));
+        return view('store.product', compact('product', 'reviews', 'title', 'recommendations'));
     }
 }

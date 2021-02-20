@@ -13,9 +13,13 @@
 .splide__list {
     margin: 0 !important;
     padding: 0 !important;
-    width: -webkit-max-content;
+    /* width: -webkit-max-content; */
     width: 100vw;
     will-change: transform;
+}
+.splide__slide img {
+    width: 100%;
+    height: auto;
 }
 .splide.is-active .splide__list {
     display: flex;

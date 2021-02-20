@@ -43,4 +43,9 @@ class Product extends Model
     {
         $query->orderByDesc('created_at');
     }
+
+    public function recommendations()
+    {
+        return $this->belongsToMany(Self::class, 'recommendations', 'product_id', 'recommended_id');
+    }
 }
