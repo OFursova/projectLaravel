@@ -9,11 +9,19 @@
     <title>@yield('title')</title>
    
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    {{-- <link rel="stylesheet" href="../../../node_modules/@splidejs/splide/dist/css/themes/splide.min.css"> --}}
+    <link rel="stylesheet" href="{{asset('css/splide.min.css')}}">
     @yield('css')
 </head>
 <body>
     @include('layouts.menu')
     <header></header>
+
+<div class="container">
+    <div class="row">
+        @include('layouts.slider')
+    </div>
+</div>
 
     <section class="container">
         <div class="row">
@@ -22,13 +30,26 @@
                 @include('store.parts._list-categories')
                 @show
             </div>
-            <div class="col-md-9">@yield('content')</div>
+            <div class="col-md-9">
+                @yield('content')
+            </div>
         </div>
     </section>
 
     <footer></footer>
 
-    
+    {{-- <script src="../../../node_modules/@splidejs/splide/dist/js/splide.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script>
+        document.addEventListener( 'DOMContentLoaded', function () {
+            new Splide( '.splide' ).mount();
+        } );
+        var splide = new Splide( '.splide' );
+        splide.on( 'autoplay:playing', function ( rate ) {
+	    console.log( rate ); // 0-1
+        } );
+        splide.mount();
+    </script>
     <script src="{{asset('js/app.js')}}"></script>
     @yield('js')
 </body>

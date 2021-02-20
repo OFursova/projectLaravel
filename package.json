@@ -17,7 +17,7 @@
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
         "postcss": "^8.1.14",
-        "resolve-url-loader": "^3.1.0",
+        "resolve-url-loader": "^3.1.2",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0"
     },
@@ -37,5 +37,8 @@
     "bugs": {
         "url": "https://github.com/OFursova/projectLaravel/issues"
     },
-    "homepage": "https://github.com/OFursova/projectLaravel#readme"
+    "homepage": "https://github.com/OFursova/projectLaravel#readme",
+    "dependencies": {
+        "@splidejs/splide": "^2.4.21"
+    }
 }

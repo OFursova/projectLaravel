@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Slider;
 //use App\Models\Review;
 //use App\Models\Category;
 //use App\Models\User;
@@ -27,7 +28,8 @@ class MainController extends Controller
         //dd($products[0]);
         //dump($products);
         //dd($categories);
-        return view('main.index', compact('title', 'products', 'subtitle'));
+        $slider = Slider::all();
+        return view('main.index', compact('title', 'products', 'subtitle', 'slider'));
     }
 
     public function contacts()

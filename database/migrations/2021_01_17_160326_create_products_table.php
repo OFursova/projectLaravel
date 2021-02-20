@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->float('action_price')->nullable();
             $table->string('slug')->unique();
-            $table->boolean('recommended')->dafault(0);
+            $table->boolean('recommended')->default(0);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
