@@ -185,7 +185,8 @@
                with font-awesome or any other icon font library -->
                   <li class="list-item my-1 py-2 border-bottom"><a href="/admin/slider"><span>Slider</span></a></li>
                    <li class="list-item my-1 py-2 border-bottom"><a href="/admin/category"><span>Categories</span></a></li>
-                   <li class="list-item my-1 py-2 border-bottom"><a href="/admin/product"><span>Products</span></a></li> 
+                   <li class="list-item my-1 py-2 border-bottom"><a href="/admin/product"><span>Products</span></a></li>
+                   <li class="list-item my-1 py-2 border-bottom"><a href="/admin/orders"><span>Orders</span></a></li> 
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
