@@ -18,7 +18,7 @@
 </div>
 <div class="form-group">
   {!! Form::label('price', 'Product Price: ') !!}
-  {!! Form::number('price', null, ['step'->'0.01', 'min'->'0', 'class'=>'form-control'. ($errors->has('price') ? ' is-invalid' : '')]) !!}
+  {!! Form::number('price', null, ['step'=>'0.01', 'min'=>'0', 'class'=>'form-control'. ($errors->has('price') ? ' is-invalid' : '')]) !!}
   @error('price')
       <div class="invalid-feedback">{{$message}}</div>
   @enderror
@@ -37,7 +37,7 @@
 </div>
 <div class="form-group">
   {!! Form::label('category_id', 'Category: ') !!}
-  {!! Form::select('category_id', $categories) !!}
+  {!! Form::select('category_id', $categories, null, ['class'=>'form-control']) !!}
 </div>
 {{-- <div class="form-group">
     {!! Form::label('uploadImg', 'Product Image: ') !!}
@@ -57,5 +57,8 @@
     <img src="{{$products->img}}" alt="{{$products->name}}" style="max-height:100px">
     @endisset
   </div>
-
+  <div class="form-group">
+    {!! Form::label('recommendations[]', 'Recommended Products: ') !!}
+    {!! Form::select('recommendations[]', $allProducts, null, ['multiple'=>true, 'class'=>'form-control recommended_products']) !!}
+  </div>
   <button class="btn btn-primary">Save</button>

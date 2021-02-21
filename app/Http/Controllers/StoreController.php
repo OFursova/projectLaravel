@@ -42,7 +42,7 @@ class StoreController extends Controller
     public function product(Product $product)
     {
         // $product = Product::where('slug', $slug)->firstOrFail();
-        $recommendations = $product->recommendations();
+        $recommendations = $product->recommendations;
         $reviews = Review::where('product_id', $product->id)->paginate(5);
         $title = $product->name;
 

@@ -18,9 +18,15 @@
     </form>
 </div>
 <h2>With this product often buy:</h2>
+<section class="d-flex justify-content-between my-2">
 @foreach ($recommendations as $item)
-    <p>{{$item}}</p>
+    <div class="rec-prod d-flex flex-column justify-content-between align-items-center border">
+        <img src="{{$item->img}}" alt="{{$item->name}}" height="100" width="150">
+        <a href="/product/{{$item->slug}}">{{$item->name}}</a>
+        <p>{{$item->price}}</p>
+    </div>
 @endforeach
+</section>
 <h2>Leave your review:</h2>
 @include('store.parts._reviews')
 @endsection

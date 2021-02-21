@@ -55,7 +55,7 @@ class CategoryController extends Controller
         */
         $request->validate([
             'name' => 'required|max:255',
-            'slug' => 'required|unique:categories|max:255',
+            //'slug' => 'required|unique:categories|max:255',
         ]);
         Category::create($request->all());
         return redirect('/admin/category');

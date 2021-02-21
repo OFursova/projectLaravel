@@ -38,7 +38,7 @@
 @else
 <p><a href="/login">Login</a> or <a href="/register">register</a></p>
 @endauth
-
+<h2 class="my-2">Other reviews:</h2>
 @forelse ($reviews as $review)
     <div class="alert border">
         <h3>{{$review->name}}</h3>

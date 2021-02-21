@@ -29,7 +29,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all()->pluck('name', 'id');
-        return view('admin.product.create', compact('categories'));
+        $allProducts = Product::all()->pluck('name', 'id');
+        return view('admin.product.create', compact('categories', 'allProducts'));
     }
 
     /**
@@ -58,11 +59,12 @@ class ProductController extends Controller
         */
         $request->validate([
             'name' => 'required|max:255',
-            'slug' => 'required|unique:categories|max:255',
+            //'slug' => 'required|unique:categories|max:255',
             'price' => 'required',
             'action_price' => 'required',
         ]);
-        Product::create($request->all());
+        $product = Product::create($request->all());
+        $product->recommendations()->sync($request->recommendations);
         return redirect('/admin/product');
     }
 
@@ -87,7 +89,8 @@ class ProductController extends Controller
     {
         $products = Product::findOrFail($id);
         $categories = Category::all()->pluck('name', 'id');
-        return view('admin.product.edit', compact('products', 'categories'));
+        $allProducts = Product::all()->pluck('name', 'id');
+        return view('admin.product.edit', compact('products', 'categories', 'allProducts'));
     }
 
     /**
@@ -103,8 +106,10 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'slug' => 'required|unique:products,slug,'.$id.'|max:255',
         ]);
-        $products = Product::findOrFail($id);
-        $products->update($request->all());
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
+
+        $product->recommendations()->sync($request->recommendations);
         return redirect('/admin/product');
     }
 
