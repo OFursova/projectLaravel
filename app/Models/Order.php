@@ -9,13 +9,15 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['totalSum', 'name', 'phone', 'address', 'status_id'];
+
     public function orderItems()
     {
-        return $this->belongsToMany(OrderItems::class, 'order_items');
+        return $this->hasMany(OrderItems::class);
     }
 
     public function status()
     {
-        return $this->belongsToMany(Self::class, 'status', 'status_id', 'id');
+        return $this->belongsTo(OrderStatus::class, 'status_id', 'id', 'id');
     }
 }

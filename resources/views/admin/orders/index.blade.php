@@ -6,30 +6,40 @@
     {{-- <a href="/admin/category/create" class="btn btn-primary">Add Category</a> --}}
 </div>
 
-    {{-- <table class="table" id="dataTable">
+    <table class="table" id="dataTable">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th><i class="fas fa-pencil-alt"></i></th>
+                <th>Order #</th>
+                <th>Client Info</th>
+                <th>Items</th>
+                <th>Order Status</th>
+                <th>Total Sum</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($categories as $item)
+            @foreach ($orders as $order)
             <tr>
-                <td>{{$loop->iteration}}</td>
-                <td><img src="{{asset($item->img)}}" style="width: 70px;" alt="{{$item->name}}"></td>
-                <td>{{$item->name}}</td>
-                <td><a href="/admin/category/{{$item->id}}/edit" class="btn btn-warning my-1">Edit</a>
-                {!! Form::open(['url' => '/admin/category/'.$item->id, 'method' => 'delete']) !!}
-                    <button class="btn btn-danger my-1">Delete</button>
-                {!! Form::close() !!}
-            </td>
+                <td>{{$order->id}}</td>
+                <td>
+                    <p>{{$order->name}}</p>
+                    <p>{{$order->phone}}</p>
+                    <p>{{$order->adress}}</p>
+                </td>
+                <td>
+                @foreach ($order->orderItems as $item)
+                <img src="{{asset($item->product_img)}}" style="width: 80px; float:left;" alt="{{$item->product_name}}"></>
+                    <p>Product: {{$item->product_name}}</p>
+                    <p>Price: {{$item->product_price}}</p>
+                    <p>Quantity: {{$item->product_qty}}</p>
+                <hr>
+                @endforeach
+                </td>
+                <td>{{$order->status->name}}</td>
+                <td>{{$order->totalSum}}</td>
             </tr>
             @endforeach
         </tbody>
-    </table> --}}
+    </table>
 @endsection
 
 @section('js')
